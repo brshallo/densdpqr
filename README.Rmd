@@ -19,13 +19,13 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-The goal of densdpqr is to make a minimal package for applying the`{dpqr}*()` distribution functions (e.g. `dnorm()`, `pnorm()`, `qnorm()`, `rnorm()`), for any arbitrary output from the `stats::density()` function.
+The goal of densdpqr is to make a minimal package for applying the`[dpqr]*()` distribution functions (e.g. `dnorm()`, `pnorm()`, `qnorm()`, `rnorm()`), for any arbitrary output from the `stats::density()` function.
 
 ## Example
 
 1. Call `stats::density()` on your data to get an estimate for a density function.
 2. Call `densdpr::smooth_density()` to smooth your density function and create the needed distribution functions for `ddens()`, `pdens()`, `qdens()` and `rdens()`.
-3. Pass output from `smooth_density()` and other required parameter into `{dpqr}dens()` function(s).
+3. Pass output from `smooth_density()` and other required parameter into `[dpqr]dens()` function(s).
 
 ```{r example}
 # devtools::install_github("brshallo/densdpqr")
@@ -63,4 +63,8 @@ Thank you to [spatstat](https://github.com/spatstat/spatstat.core/blob/76d20a642
 * [ks](https://cran.r-project.org/web/packages/ks/ks.pdf) package
 * [Nonparametric Statistics, Kernel density estimation...](https://bookdown.org/egarpor/NP-UC3M/kde-i.html) online book
 
-In most simple univariate cases I would just use the `logspline::{dpqr}logspline()` functions which are set-up the same way as `densdpqr::{dbqr}dens()` but without the same [Problems]. The advantages with densdpqr are it allows the use of the base `stats::density()` function, fewer dependencies, and is [likely faster](https://gist.github.com/brshallo/ea2e04347e14fae7ff969a54e2266359).
+In most simple univariate cases I would just use the `logspline::[dpqr]logspline()` functions which are set-up the same way as `densdpqr::[dpqr]dens()` but without the same [Problems]. The advantages with densdpqr are it allows the use of the base `stats::density()` function, it has fewer dependencies, and is [likely faster](https://gist.github.com/brshallo/ea2e04347e14fae7ff969a54e2266359).
+  
+  
+
+

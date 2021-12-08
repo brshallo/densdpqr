@@ -46,5 +46,5 @@ rdens(sdens, 10L)
 
 }
 \seealso{
-\verb{stats::\{dpqr\}*()} distribution functions and logspline package.
+\verb{stats::[dpqr]*()} distribution functions and logspline package.
 }

@@ -38,7 +38,7 @@ smooth_density <- function(d){
 #' @param n number of observations.
 #'
 #' @name dens
-#' @seealso `stats::{dpqr}*()` distribution functions and logspline package.
+#' @seealso `stats::[dpqr]*()` distribution functions and logspline package.
 #' @examples
 #' set.seed(123)
 #' data <- rnorm(10000)

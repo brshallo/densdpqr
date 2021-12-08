@@ -10,7 +10,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 <!-- badges: end -->
 
 The goal of densdpqr is to make a minimal package for applying
-the`{dpqr}*()` distribution functions (e.g. `dnorm()`, `pnorm()`,
+the`[dpqr]*()` distribution functions (e.g. `dnorm()`, `pnorm()`,
 `qnorm()`, `rnorm()`), for any arbitrary output from the
 `stats::density()` function.
 
@@ -22,7 +22,7 @@ the`{dpqr}*()` distribution functions (e.g. `dnorm()`, `pnorm()`,
     create the needed distribution functions for `ddens()`, `pdens()`,
     `qdens()` and `rdens()`.
 3.  Pass output from `smooth_density()` and other required parameter
-    into `{dpqr}dens()` function(s).
+    into `[dpqr]dens()` function(s).
 
 ``` r
 # devtools::install_github("brshallo/densdpqr")
@@ -85,10 +85,10 @@ approach in densdpqr.
     book
 
 In most simple univariate cases I would just use the
-`logspline::{dpqr}logspline()` functions which are set-up the same way
-as `densdpqr::{dbqr}dens()` but without the same [Problems](#problems).
+`logspline::[dpqr]logspline()` functions which are set-up the same way
+as `densdpqr::[dpqr]dens()` but without the same [Problems](#problems).
 The advantages with densdpqr are it allows the use of the base
-`stats::density()` function, fewer dependencies, and is [likely
+`stats::density()` function, it has fewer dependencies, and is [likely
 faster](https://gist.github.com/brshallo/ea2e04347e14fae7ff969a54e2266359).
 
 [1] When I tried to pass `lower = -Inf` into `integrate()` I got errors
