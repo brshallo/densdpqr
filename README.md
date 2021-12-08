@@ -18,11 +18,11 @@ the`{dpqr}*()` distribution functions (e.g. `dnorm()`, `pnorm()`,
 
 1.  Call `stats::density()` on your data to get an estimate for a
     density function.
-2.  Call `densdpr::fit_density()` to smooth your density function and
+2.  Call `densdpr::smooth_density()` to smooth your density function and
     create the needed distribution functions for `ddens()`, `pdens()`,
     `qdens()` and `rdens()`.
-3.  Pass output from `fit_density()` and other required parameter into
-    `{dpqr}dens()` function(s).
+3.  Pass output from `smooth_density()` and other required parameter
+    into `{dpqr}dens()` function(s).
 
 ``` r
 # devtools::install_github("brshallo/densdpqr")
@@ -31,7 +31,7 @@ library(densdpqr)
 set.seed(123)
 data <- rnorm(10000)
 dens <- density(data)
-fdens <- fit_density(dens)
+fdens <- smooth_density(dens)
 
 ddens(fdens, 2)
 #> [1] 0.05513055
@@ -46,7 +46,7 @@ rdens(fdens, 10L)
 
 # Problems
 
--   `fit_density()` uses a separate smoothing spline to build the
+-   `smooth_density()` uses a separate smoothing spline to build the
     requisite functions for `ddens()`, `pdens()` and `qdens()`. This is
     inefficient *and* means it is possible for the different
     distribution functions to be slightly inconsistent with one another.
@@ -64,8 +64,8 @@ rdens(fdens, 10L)
     -   This could just be hard capped, but it would be preferable to
         use a smoothing function that respected these density
         constraints more intelligently[3].
--   The smoothing method in `fit_density()` will not necessarily respect
-    the `from` and `to` ranges set when creating `density()`[4].
+-   The smoothing method in `smooth_density()` will not necessarily
+    respect the `from` and `to` ranges set when creating `density()`[4].
 -   Not tested on wide range of distributions.
 
 # Inspiration & Other Resources

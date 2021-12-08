@@ -17,7 +17,7 @@ qdens(fd, p)
 rdens(fd, n)
 }
 \arguments{
-\item{fd}{List outputted by \code{fit_density()}.}
+\item{fd}{List outputted by \code{smooth_density()}.}
 
 \item{x}{vector of quantiles.}
 
@@ -30,14 +30,14 @@ rdens(fd, n)
 \description{
 Density, distribution function, quantile function, and random generation for
 the \code{density()} object. Each function calls the appropriate function from the
-output of \code{fit_density()}.
+output of \code{smooth_density()}.
 }
 \examples{
 set.seed(123)
 data <- rnorm(10000)
 dens <- density(data)
 
-fdens <- fit_density(dens)
+fdens <- smooth_density(dens)
 
 ddens(fdens, 2)
 pdens(fdens, 2)

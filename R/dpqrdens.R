@@ -12,8 +12,8 @@
 #' data <- rnorm(10000)
 #' dens <- density(data)
 #'
-#' fdens <- fit_density(dens)
-fit_density <- function(d){
+#' fdens <- smooth_density(dens)
+smooth_density <- function(d){
 
   ddens <- with(d, splinefun(x, y, method = "monoH.FC"))
 
@@ -30,8 +30,8 @@ fit_density <- function(d){
 #'
 #' Density, distribution function, quantile function, and random generation for
 #' the `density()` object. Each function calls the appropriate function from the
-#' output of `fit_density()`.
-#' @param fd List outputted by `fit_density()`.
+#' output of `smooth_density()`.
+#' @param fd List outputted by `smooth_density()`.
 #' @param x vector of quantiles.
 #' @param q vector of quantiles.
 #' @param p vector of probabilities (should be between 0 and 1).
@@ -44,7 +44,7 @@ fit_density <- function(d){
 #' data <- rnorm(10000)
 #' dens <- density(data)
 #'
-#' fdens <- fit_density(dens)
+#' fdens <- smooth_density(dens)
 #'
 #' ddens(fdens, 2)
 #' pdens(fdens, 2)
