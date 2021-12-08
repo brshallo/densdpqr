@@ -59,11 +59,13 @@ rdens(sdens, 10L)
 
 Thank you to [spatstat](https://github.com/spatstat/spatstat.core/blob/76d20a642867d7c30a0f11c58af5b8634ad302cd/R/quantiledensity.R) authors as well as William Huber whose comment on [How to find probability density function from density function...](https://stats.stackexchange.com/a/553271/193123) inspired the approach in densdpqr.
 
+* **UPDATE** discovered [pdqr](https://github.com/echasnovski/pdqr) after initial share, would probably just use this.
 * [logspline](https://cran.r-project.org/web/packages/logspline/logspline.pdf) package
 * [ks](https://cran.r-project.org/web/packages/ks/ks.pdf) package
 * [Nonparametric Statistics, Kernel density estimation...](https://bookdown.org/egarpor/NP-UC3M/kde-i.html) online book
+* [CRAN Task View: Probability Distributions](https://cran.r-project.org/web/views/Distributions.html)
 
-In most simple univariate cases I would just use the `logspline::[dpqr]logspline()` functions which are set-up the same way as `densdpqr::[dpqr]dens()` but without the same [Problems]. The advantages with densdpqr are it allows the use of the base `stats::density()` function, it has fewer dependencies, and is [likely faster](https://gist.github.com/brshallo/ea2e04347e14fae7ff969a54e2266359).
+In most simple univariate cases could just use the `logspline::[dpqr]logspline()` functions which are set-up the same way as `densdpqr::[dpqr]dens()` but without the same [Problems]. The advantages with densdpqr are it allows the use of the base `stats::density()` function, it has fewer dependencies, and is [likely faster](https://gist.github.com/brshallo/ea2e04347e14fae7ff969a54e2266359).
   
   
 

@@ -77,14 +77,18 @@ probability density function from density
 function…](https://stats.stackexchange.com/a/553271/193123) inspired the
 approach in densdpqr.
 
+-   **UPDATE** discovered [pdqr](https://github.com/echasnovski/pdqr)
+    after initial share, would probably just use this.
 -   [logspline](https://cran.r-project.org/web/packages/logspline/logspline.pdf)
     package
 -   [ks](https://cran.r-project.org/web/packages/ks/ks.pdf) package
 -   [Nonparametric Statistics, Kernel density
     estimation…](https://bookdown.org/egarpor/NP-UC3M/kde-i.html) online
     book
+-   [CRAN Task View: Probability
+    Distributions](https://cran.r-project.org/web/views/Distributions.html)
 
-In most simple univariate cases I would just use the
+In most simple univariate cases could just use the
 `logspline::[dpqr]logspline()` functions which are set-up the same way
 as `densdpqr::[dpqr]dens()` but without the same [Problems](#problems).
 The advantages with densdpqr are it allows the use of the base
