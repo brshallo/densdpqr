@@ -8,16 +8,16 @@
 \alias{rdens}
 \title{Arbitrary Distribution}
 \usage{
-ddens(fd, x)
+ddens(sdens, x)
 
-pdens(fd, q)
+pdens(sdens, q)
 
-qdens(fd, p)
+qdens(sdens, p)
 
-rdens(fd, n)
+rdens(sdens, n)
 }
 \arguments{
-\item{fd}{List outputted by \code{smooth_density()}.}
+\item{sdens}{List outputted by \code{smooth_density()}.}
 
 \item{x}{vector of quantiles.}
 
@@ -37,12 +37,12 @@ set.seed(123)
 data <- rnorm(10000)
 dens <- density(data)
 
-fdens <- smooth_density(dens)
+sdens <- smooth_density(dens)
 
-ddens(fdens, 2)
-pdens(fdens, 2)
-qdens(fdens, 0.977)
-rdens(fdens, 10L)
+ddens(sdens, 2)
+pdens(sdens, 2)
+qdens(sdens, 0.977)
+rdens(sdens, 10L)
 
 }
 \seealso{

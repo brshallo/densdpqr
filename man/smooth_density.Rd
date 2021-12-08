@@ -2,7 +2,7 @@
 % Please edit documentation in R/dpqrdens.R
 \name{smooth_density}
 \alias{smooth_density}
-\title{Fit Density}
+\title{Smooth Density}
 \usage{
 smooth_density(d)
 }
@@ -21,5 +21,5 @@ set.seed(123)
 data <- rnorm(10000)
 dens <- density(data)
 
-fdens <- smooth_density(dens)
+sdens <- smooth_density(dens)
 }

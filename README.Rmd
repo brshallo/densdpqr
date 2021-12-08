@@ -34,12 +34,12 @@ library(densdpqr)
 set.seed(123)
 data <- rnorm(10000)
 dens <- density(data)
-fdens <- smooth_density(dens)
+sdens <- smooth_density(dens)
 
-ddens(fdens, 2)
-pdens(fdens, 2)
-qdens(fdens, 0.977)
-rdens(fdens, 10L)
+ddens(sdens, 2)
+pdens(sdens, 2)
+qdens(sdens, 0.977)
+rdens(sdens, 10L)
 ```
 
 # Problems

@@ -31,15 +31,15 @@ library(densdpqr)
 set.seed(123)
 data <- rnorm(10000)
 dens <- density(data)
-fdens <- smooth_density(dens)
+sdens <- smooth_density(dens)
 
-ddens(fdens, 2)
+ddens(sdens, 2)
 #> [1] 0.05513055
-pdens(fdens, 2)
+pdens(sdens, 2)
 #> [1] 0.9770511
-qdens(fdens, 0.977)
+qdens(sdens, 0.977)
 #> [1] 1.999054
-rdens(fdens, 10L)
+rdens(sdens, 10L)
 #>  [1]  2.3939920 -0.5273786 -0.1777766 -1.0160578  0.9251596 -0.8309481
 #>  [7] -0.5785291  0.1021182  0.2127245 -0.1567640
 ```

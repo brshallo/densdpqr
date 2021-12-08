@@ -1,4 +1,4 @@
-#' Fit Density
+#' Smooth Density
 #'
 #' Smoothes output of `density()` and returns functions needed to run other
 #' functions on the distribution.
@@ -12,7 +12,7 @@
 #' data <- rnorm(10000)
 #' dens <- density(data)
 #'
-#' fdens <- smooth_density(dens)
+#' sdens <- smooth_density(dens)
 smooth_density <- function(d){
 
   ddens <- with(d, splinefun(x, y, method = "monoH.FC"))
@@ -31,7 +31,7 @@ smooth_density <- function(d){
 #' Density, distribution function, quantile function, and random generation for
 #' the `density()` object. Each function calls the appropriate function from the
 #' output of `smooth_density()`.
-#' @param fd List outputted by `smooth_density()`.
+#' @param sdens List outputted by `smooth_density()`.
 #' @param x vector of quantiles.
 #' @param q vector of quantiles.
 #' @param p vector of probabilities (should be between 0 and 1).
@@ -44,27 +44,27 @@ smooth_density <- function(d){
 #' data <- rnorm(10000)
 #' dens <- density(data)
 #'
-#' fdens <- smooth_density(dens)
+#' sdens <- smooth_density(dens)
 #'
-#' ddens(fdens, 2)
-#' pdens(fdens, 2)
-#' qdens(fdens, 0.977)
-#' rdens(fdens, 10L)
+#' ddens(sdens, 2)
+#' pdens(sdens, 2)
+#' qdens(sdens, 0.977)
+#' rdens(sdens, 10L)
 #'
 NULL
 
 #' @export
 #' @rdname dens
-ddens <- function(fd, x) fd$ddens(x)
+ddens <- function(sdens, x) sdens$ddens(x)
 
 #' @export
 #' @rdname dens
-pdens <- function(fd, q) fd$pdens(q)
+pdens <- function(sdens, q) sdens$pdens(q)
 
 #' @export
 #' @rdname dens
-qdens <- function(fd, p) fd$qdens(p)
+qdens <- function(sdens, p) sdens$qdens(p)
 
 #' @export
 #' @rdname dens
-rdens <- function(fd, n) fd$qdens(stats::runif(n))
+rdens <- function(sdens, n) sdens$qdens(stats::runif(n))
