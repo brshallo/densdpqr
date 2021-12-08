@@ -23,12 +23,12 @@ devtools::install_github("brshallo/densdpqr")
 
 ## Example
 
-1.  Get data
-2.  Call `stats::density()` to get an estimate for a density function of
-    your data.
-3.  Call `densdpr::fit_density()` to smooth your density function and
-    create the needed distribution functions.
-4.  Pass output from `fit_density()` and other required parameter into
+1.  Call `stats::density()` on your data to get an estimate for a
+    density function.
+2.  Call `densdpr::fit_density()` to smooth your density function and
+    create the needed distribution functions for `ddens()`, `pdens()`,
+    `qdens()` and `rdens()`.
+3.  Pass output from `fit_density()` and other required parameter into
     `{dpqr}dens()` function(s).
 
 ``` r
@@ -56,24 +56,22 @@ rdens(fdens, 10L)
     requisite functions for `ddens()`, `pdens()` and `qdens()`. This is
     inefficient *and* means it is possible for the different
     distribution functions to be slightly inconsistent with one another.
-    -   What likely *should* be done is: `ddens()` should serve as the
-        foundation. `pdens()` would be the integral of `ddens()`.
-        `qdens()` would be the inverse of `pdens()`. This would ensure
-        that all distribution functions are consistent with one
-        another[1].
--   May want to change smoothing method to one that is
+    What likely *should* be done is…
+    -   `ddens()` should serve as the foundation.
+    -   `pdens()` would be the integral of `ddens()`.
+    -   `qdens()` would be the inverse of `pdens()`.
+    -   This would ensure that all distribution functions are consistent
+        with one another[1].
+-   May want to change fit of smoother to one that is
     [orthogonal](https://en.wikipedia.org/wiki/Cubic_Hermite_spline)[2]
--   `qdens()` should not accept values outside of 0 and 1 (but it
-    currently does). Relatedely, `pdens()` should not return values
-    outside of 1, but it can.
-    -   These values could just be hard capped, but it would be
-        preferable to use a smoothing function that respected these
-        density constraints somewhat intelligently.
-    -   In the interim, maybe should at least at a `warning()` and just
-        count on user being thoughtful.
+-   `qdens()` should not accept values outside of 0 and 1, but it
+    currently does; `pdens()` should not return values outside of 0 to
+    1, but it can.
+    -   This could just be hard capped, but it would be preferable to
+        use a smoothing function that respected these density
+        constraints more intelligently[3].
 -   The smoothing method in `fit_density()` will not necessarily respect
-    the `from` and `to` ranges set when creating `density()` (again are
-    just relying on user to be intelligent when using).
+    the `from` and `to` ranges set when creating `density()`[4].
 -   Not tested on wide range of distributions.
 
 # Inspiration & Other Resources
@@ -86,14 +84,15 @@ function…](https://stats.stackexchange.com/a/553271/193123) inspired the
 approach in densdpqr.
 
 -   [logspline](https://cran.r-project.org/web/packages/logspline/logspline.pdf)
--   [ks](https://cran.r-project.org/web/packages/ks/ks.pdf)
+    package
+-   [ks](https://cran.r-project.org/web/packages/ks/ks.pdf) package
 -   [Nonparametric Statistics, Kernel density
-    estimation…](https://bookdown.org/egarpor/NP-UC3M/kde-i.html)
+    estimation…](https://bookdown.org/egarpor/NP-UC3M/kde-i.html) online
+    book
 
 In most simple univariate cases I would just use the
 `logspline::{dpqr}logspline()` functions which are set-up the same way
 as `densdpqr::{dbqr}dens()` but without the same [Problems](#problems).
-
 The advantages with densdpqr are it allows the use of the base
 `stats::density()` function, fewer dependencies, and is [likely
 faster](https://gist.github.com/brshallo/ea2e04347e14fae7ff969a54e2266359).
@@ -105,3 +104,8 @@ efficiently return the inverse of `pdens()`.
 
 [2] Current method may be biased towards smoothing density rather than
 the inverse, the quantiles.
+
+[3] In the interim, maybe should at least at a `warning()` and just
+count on user being thoughtful.
+
+[4] Again are just relying on user to be intelligent when using.
