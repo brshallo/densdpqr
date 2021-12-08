@@ -21,12 +21,6 @@ knitr::opts_chunk$set(
 
 The goal of densdpqr is to make a minimal package for applying the`{dpqr}*()` distribution functions (e.g. `dnorm()`, `pnorm()`, `qnorm()`, `rnorm()`), for any arbitrary output from the `stats::density()` function.
 
-## Installation
-
-``` r
-# install.packages("devtools")
-devtools::install_github("brshallo/densdpqr")
-```
 ## Example
 
 1. Call `stats::density()` on your data to get an estimate for a density function.
@@ -34,6 +28,7 @@ devtools::install_github("brshallo/densdpqr")
 3. Pass output from `fit_density()` and other required parameter into `{dpqr}dens()` function(s).
 
 ```{r example}
+# devtools::install_github("brshallo/densdpqr")
 library(densdpqr)
 
 set.seed(123)

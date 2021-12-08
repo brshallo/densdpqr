@@ -14,13 +14,6 @@ the`{dpqr}*()` distribution functions (e.g. `dnorm()`, `pnorm()`,
 `qnorm()`, `rnorm()`), for any arbitrary output from the
 `stats::density()` function.
 
-## Installation
-
-``` r
-# install.packages("devtools")
-devtools::install_github("brshallo/densdpqr")
-```
-
 ## Example
 
 1.  Call `stats::density()` on your data to get an estimate for a
@@ -32,6 +25,7 @@ devtools::install_github("brshallo/densdpqr")
     `{dpqr}dens()` function(s).
 
 ``` r
+# devtools::install_github("brshallo/densdpqr")
 library(densdpqr)
 
 set.seed(123)
